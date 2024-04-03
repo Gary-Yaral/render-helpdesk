@@ -52,6 +52,7 @@ export class LoginComponent implements OnInit{
       this.restApi.postAuth(this.formGroup.value)
       .pipe(catchError((error) => errorHandlers(error, this.errors)))
         .subscribe((result) => {
+          console.log(result)
         if(result.data) {
           StorageData.set(result.data)
           this.router.navigate(['main'])
