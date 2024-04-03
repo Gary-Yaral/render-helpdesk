@@ -184,6 +184,8 @@ export class DatatableComponent implements OnChanges, OnInit, OnDestroy, AfterVi
     ).subscribe((response: any) => {
       if(!response.error) {
         if(response.data) {
+          console.log(response.data);
+
           // Le creamos un indice para que se muestre en la tabla
           response.data.rows.map((el:any, i:number) => {
             this.processOperacions(el)

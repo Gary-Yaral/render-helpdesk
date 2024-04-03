@@ -189,6 +189,9 @@ export class InventoryComponent implements OnInit{
 
   showUpdate(inventory: any) {
     this.selectedId = inventory.id
+    console.log(inventory, inventory['Category.id'])
+    console.log(this.categories)
+
     let data = {
       providerId: inventory['Invoice.Provider.id'],
       categoryId: inventory['Category.id'],
@@ -204,6 +207,8 @@ export class InventoryComponent implements OnInit{
     this.damagedImages = []
     this.fileListDamagedImages = []
     this.fileListImages = []
+    // Mostramos ls ventana modal
+    this.isVisible = true
     // Cargamos el formulario con los datos que tenemos
     this.formGroup.setValue(data)
     // Cargamos las facturas
@@ -212,8 +217,6 @@ export class InventoryComponent implements OnInit{
     this.formGroup.get('invoiceId')?.setValue(inventory['Invoice.id'])
     // Seteamos la acción del formulario
     this.formAction = this.formActions.UPDATE
-    // Mostramos ls ventana modal
-    this.isVisible = true
     // Mostrar optionales si están llenos
     this.checkbox.nativeElement.checked = inventory.damaged > 0
     this.damagedRequired = inventory.damaged > 0
@@ -435,9 +438,7 @@ export class InventoryComponent implements OnInit{
   resetInvoices() {
     this.invoices = []
     this.formGroup.get('invoiceId')?.setValue('')
-    this.formGroup.get('categoryId')?.setValue('')
     this.errors.invoiceId = ''
-    this.errors.categoryId = ''
   }
 
   getInvoices() {

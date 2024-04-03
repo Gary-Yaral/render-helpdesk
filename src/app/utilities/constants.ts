@@ -8,8 +8,9 @@ export const PACKAGE_STATUS = {
   ENABLED: 1,
   DISABLED: 2
 }
-
-export const SERVER = 'https://render-test-3ut5.onrender.com/api'
+const URI_TEST = 'http://localhost:4000/api/'
+const URI = 'https://render-test-3ut5.onrender.com/api'
+export const SERVER = URI
 
 export const ROUTES_API = {
   auth: SERVER + '/auth/',

@@ -6,7 +6,7 @@ import { inject } from "@angular/core";
 export const ACCESS_ROLES = [
   {
     id: 1,
-    roleName: 'Administrador'
+    roleName: 'ADMIN'
   }
 ]
 
